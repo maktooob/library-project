@@ -59,6 +59,17 @@ router.get("/books/:bookId", (req, res) => {
 
 })
 
+router.get("/books/:bookId/edit", (req, res) => {
+  const bookId = req.params.bookId
+  Book.findById(bookId)
+  .then( (bookDetails) => {
+    res.render("books/book-edit", bookDetails)
+  })
+  .catch ((err) => {
+    console.log("Error")
+  })
+} )
+
 
 
 
